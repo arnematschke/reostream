@@ -1,29 +1,29 @@
-# reostream als Home Assistant Add-on
+# reostream Home Assistant Add-on
 
-Dieses Add-on verpackt das veröffentlichte Multiarch-Image von reostream. Die Weboberfläche wird über Home Assistant Ingress geöffnet. HTTP- und RTSP-Streams werden als Ports des Add-ons bereitgestellt.
+This add-on runs the published multi-architecture reostream image. Home Assistant Ingress provides access to the web interface, while the HTTP and RTSP streams are exposed on separate ports.
 
 ## Installation
 
-1. In Home Assistant unter **Einstellungen → Add-ons → Add-on-Store** das Menü öffnen und **Repositories** auswählen.
-2. `https://github.com/VoltTech21/reostream` als Repository hinzufügen.
-3. **reostream** installieren und starten.
-4. Im Add-on-Protokoll den einmaligen Claim-Token ablesen.
-5. Über **Web UI öffnen** die Claim-Seite aufrufen und den Token eingeben. Danach das vorgeschlagene Passwort sicher speichern.
-6. Kameras in der Weboberfläche hinzufügen. Der Reolink-Baichuan-Port 9000 muss vom Add-on aus erreichbar sein.
+1. In Home Assistant, open **Settings → Add-ons → Add-on Store**.
+2. Open the store menu, select **Repositories**, and add `https://github.com/VoltTech21/reostream`.
+3. Find **reostream** in the store, install it, and start it.
+4. Find the one-time claim token in the add-on logs.
+5. Select **Open Web UI**, enter the token on the claim page, and save the password it provides.
+6. Add your cameras in the web interface. The add-on must be able to reach each camera on Reolink's Baichuan port, TCP 9000.
 
-Die Konfiguration wird in Home Assistants persistentem Add-on-Datenverzeichnis unter `/data` gespeichert.
+reostream stores its configuration and credentials in the add-on's persistent `/data` directory.
 
-## Streams
+## Accessing the streams
 
-Die Ports 8560 (HTTP-MPEG-TS) und 8561 (RTSP) sind auf den gleichnamigen Host-Ports veröffentlicht. Verwende in einem LAN-Client die Adresse deines Home-Assistant-Hosts:
+The add-on publishes HTTP-MPEG-TS on port 8560 and RTSP on port 8561. From a client on your local network, use your Home Assistant host's address:
 
-- `http://<home-assistant-host>:8560/<kamera>.ts`
-- `rtsp://<home-assistant-host>:8561/<kamera>`
+- `http://<home-assistant-host>:8560/<camera>.ts`
+- `rtsp://<home-assistant-host>:8561/<camera>`
 
-Wenn du die Add-on-Ports in der Add-on-Konfiguration änderst, müssen die URLs entsprechend angepasst werden. Ingress stellt die Bedienoberfläche bereit; für Streams wird weiterhin die Host-Adresse mit den veröffentlichten Ports verwendet.
+If you change the host ports in the add-on configuration, update the URLs accordingly. Ingress provides access to the web interface; stream clients connect directly to the published host ports.
 
-## Hinweise
+## Details
 
-- Unterstützte Plattformen: Home Assistant OS auf amd64 und aarch64.
-- Dieses Add-on bezieht `ghcr.io/volttech21/reostream`; die Veröffentlichung und Multiarch-Images werden vom Hauptrepository gepflegt.
-- Zugangsdaten und Kamerakonfigurationen werden vom reostream-Dienst im persistenten `/data` verwaltet, nicht als Add-on-Optionen.
+- Supported architectures: `amd64` and `aarch64` on Home Assistant OS.
+- The add-on uses `ghcr.io/volttech21/reostream`. The main repository maintains the published image and its multi-architecture builds.
+- Camera settings and credentials are managed by reostream in `/data`; they are not configured through Home Assistant add-on options.
