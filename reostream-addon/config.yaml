@@ -1,5 +1,5 @@
 name: reostream
-version: 0.1.11
+version: 0.1.12
 slug: reostream
 description: Reolink-Kamera-Proxy mit HTTP-MPEG-TS, RTSP und Weboberfläche
 url: https://github.com/VoltTech21/reostream
@@ -7,15 +7,16 @@ image: ghcr.io/volttech21/reostream
 arch:
   - amd64
   - aarch64
-ingress: true
-ingress_port: 8562
+webui: "http://[HOST]:[PORT:8562]/"
 panel_icon: mdi:cctv
 ports:
   8560/tcp: 8560
   8561/tcp: 8561
+  8562/tcp: 8562
 ports_description:
-  8560/tcp: HTTP-MPEG-TS-Streams
-  8561/tcp: RTSP-Streams
+  8560/tcp: HTTP-MPEG-TS streams
+  8561/tcp: RTSP streams
+  8562/tcp: Web interface
 startup: services
 boot: auto
 init: false
