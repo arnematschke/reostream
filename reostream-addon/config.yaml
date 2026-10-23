@@ -1,9 +1,9 @@
 name: reostream
-version: 0.1.12
+version: 0.1.13
 slug: reostream
 description: Reolink camera proxy with HTTP-MPEG-TS, RTSP, and web interface
 url: https://github.com/VoltTech21/reostream
-image: ghcr.io/volttech21/reostream
+image: ghcr.io/volttech21/reostream:latest
 arch:
   - amd64
   - aarch64
