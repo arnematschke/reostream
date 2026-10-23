@@ -5,7 +5,7 @@ This add-on runs the published multi-architecture reostream image. Home Assistan
 ## Installation
 
 1. In Home Assistant, open **Settings → Add-ons → Add-on Store**.
-2. Open the store menu, select **Repositories**, and add `https://github.com/VoltTech21/reostream`.
+2. Open the store menu, select **Repositories**, and add `https://github.com/arnematschke/reostream#home-assistant-addon`.
 3. Find **reostream** in the store, install it, and start it.
 4. Find the one-time claim token in the add-on logs.
 5. Select **Open Web UI**, enter the token on the claim page, and save the password it provides.
