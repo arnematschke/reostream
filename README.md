@@ -48,6 +48,12 @@ Your streams are at `rtsp://<host>:8561/<camera>` and `http://<host>:8560/<camer
 
 Prefer compose, Unraid, a plain binary or systemd? See `docs/setup.md`.
 
+## Home Assistant
+
+An add-on definition is available in [`reostream-addon/`](reostream-addon/README.md).
+Add this repository to the Home Assistant Add-on Store:
+`https://github.com/VoltTech21/reostream`.
+
 ![Status page](docs/images/status.png)
 
 ## Using it with Frigate
