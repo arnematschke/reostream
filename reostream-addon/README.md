@@ -1,6 +1,6 @@
 # reostream Home Assistant Add-on
 
-This add-on runs the published multi-architecture reostream image. Home Assistant Ingress provides access to the web interface, while the HTTP and RTSP streams are exposed on separate ports.
+This add-on runs the published multi-architecture reostream image. Home Assistant opens reostream's web interface directly on port 8562. HTTP and RTSP streams are exposed on ports 8560 and 8561.
 
 ## Installation
 
@@ -13,14 +13,15 @@ This add-on runs the published multi-architecture reostream image. Home Assistan
 
 reostream stores its configuration and credentials in the add-on's persistent `/data` directory.
 
-## Accessing the streams
+## Accessing the streams and web interface
 
-The add-on publishes HTTP-MPEG-TS on port 8560 and RTSP on port 8561. From a client on your local network, use your Home Assistant host's address:
+The add-on publishes the web interface on port 8562, HTTP-MPEG-TS on port 8560, and RTSP on port 8561. Select **Open Web UI** from the add-on page, or open the web interface from a browser on your local network. Stream clients can use your Home Assistant host's address:
 
-- `http://<home-assistant-host>:8560/<camera>.ts`
-- `rtsp://<home-assistant-host>:8561/<camera>`
+- HTTP-MPEG-TS: `http://<home-assistant-host>:8560/<camera>.ts`
+- RTSP: `rtsp://<home-assistant-host>:8561/<camera>`
+- Web interface: `http://<home-assistant-host>:8562/`
 
-If you change the host ports in the add-on configuration, update the URLs accordingly. Ingress provides access to the web interface; stream clients connect directly to the published host ports.
+If you change the host ports in the add-on configuration, update the URLs accordingly. The web interface uses reostream's own claim and password login.
 
 ## Details
 
